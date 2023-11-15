@@ -1,0 +1,404 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.11.1\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.props" Condition="Exists('..\packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.11.1\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{856AE9B0-6440-41FB-B67E-43383EDC102C}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>shopqa</RootNamespace>
+    <AssemblyName>shopqa</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44318</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
+    <DockerLaunchUrl>http://{ServiceIPAddress}</DockerLaunchUrl>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\loginController.cs" />
+    <Compile Include="Controllers\registerController.cs" />
+    <Compile Include="Controllers\tbl_album_productController.cs" />
+    <Compile Include="Controllers\tbl_productController.cs" />
+    <Compile Include="Models\MyViewModel.cs" />
+    <Compile Include="shopqa.cs" />
+    <Compile Include="tbl_album_product.cs" />
+    <Compile Include="tbl_category_product.cs" />
+    <Compile Include="tbl_comment.cs" />
+    <Compile Include="tbl_contact.cs" />
+    <Compile Include="tbl_customer.cs" />
+    <Compile Include="tbl_feedback.cs" />
+    <Compile Include="tbl_order.cs" />
+    <Compile Include="tbl_product.cs" />
+    <Compile Include="tbl_transaction.cs" />
+    <Compile Include="tbl_user.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="data\public\css\bootstrap.css" />
+    <Content Include="data\public\css\chocolat.css" />
+    <Content Include="data\public\css\flexslider.css" />
+    <Content Include="data\public\css\form.css" />
+    <Content Include="data\public\css\jstarbox.css" />
+    <Content Include="data\public\css\popuo-box.css" />
+    <Content Include="data\public\css\style.css" />
+    <Content Include="data\public\css\style4.css" />
+    <Content Include="data\public\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="data\public\images\abc.jpg" />
+    <Content Include="data\public\images\abc.png" />
+    <Content Include="data\public\images\abc1.png" />
+    <Content Include="data\public\images\abc2.png" />
+    <Content Include="data\public\images\b-arrow.png" />
+    <Content Include="data\public\images\ba11.jpg" />
+    <Content Include="data\public\images\ba12.jpg" />
+    <Content Include="data\public\images\back.jpg" />
+    <Content Include="data\public\images\ca.png" />
+    <Content Include="data\public\images\cart.png" />
+    <Content Include="data\public\images\ch.jpg" />
+    <Content Include="data\public\images\ch1.jpg" />
+    <Content Include="data\public\images\ch2.jpg" />
+    <Content Include="data\public\images\close.png" />
+    <Content Include="data\public\images\f1.png" />
+    <Content Include="data\public\images\f2.png" />
+    <Content Include="data\public\images\f3.png" />
+    <Content Include="data\public\images\ic.png" />
+    <Content Include="data\public\images\ic1.png" />
+    <Content Include="data\public\images\ic2.png" />
+    <Content Include="data\public\images\ic3.png" />
+    <Content Include="data\public\images\img-sprite.png" />
+    <Content Include="data\public\images\log.png" />
+    <Content Include="data\public\images\logo.png" />
+    <Content Include="data\public\images\logoDemo.png" />
+    <Content Include="data\public\images\me.png" />
+    <Content Include="data\public\images\me1.png" />
+    <Content Include="data\public\images\pc.jpg" />
+    <Content Include="data\public\images\pc1.jpg" />
+    <Content Include="data\public\images\pc2.jpg" />
+    <Content Include="data\public\images\pc3.jpg" />
+    <Content Include="data\public\images\pc4.jpg" />
+    <Content Include="data\public\images\pc5.jpg" />
+    <Content Include="data\public\images\pc6.jpg" />
+    <Content Include="data\public\images\pc7.jpg" />
+    <Content Include="data\public\images\pi.jpg" />
+    <Content Include="data\public\images\pi1.jpg" />
+    <Content Include="data\public\images\pi2.jpg" />
+    <Content Include="data\public\images\pi3.jpg" />
+    <Content Include="data\public\images\search.png" />
+    <Content Include="data\public\images\si.jpg" />
+    <Content Include="data\public\images\si1.jpg" />
+    <Content Include="data\public\images\si2.jpg" />
+    <Content Include="data\public\images\tick.png" />
+    <Content Include="data\public\images\tick1.png" />
+    <Content Include="data\public\js\bootstrap.min.js" />
+    <Content Include="data\public\js\classie.js" />
+    <Content Include="data\public\js\imagezoom.js" />
+    <Content Include="data\public\js\jquery.chocolat.js" />
+    <Content Include="data\public\js\jquery.flexslider.js" />
+    <Content Include="data\public\js\jquery.magnific-popup.js" />
+    <Content Include="data\public\js\jquery.min.js" />
+    <Content Include="data\public\js\jstarbox.js" />
+    <Content Include="data\public\js\modernizr.custom.72111.js" />
+    <Content Include="data\public\js\simpleCart.min.js" />
+    <Content Include="data\public\js\uisearch.js" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="wwwroot\upload\anhbanner\ba11.jpg" />
+    <Content Include="wwwroot\upload\anhbanner\ba13.jpg" />
+    <Content Include="wwwroot\upload\anhdaidien\1488613138ch2.jpg" />
+    <Content Include="wwwroot\upload\anhdaidien\1656594347ch1.jpg" />
+    <Content Include="wwwroot\upload\anhdaidien\16565984461488613138ch2.jpg" />
+    <Content Include="wwwroot\upload\anhdaidien\16565984511656594347ch1.jpg" />
+    <Content Include="wwwroot\upload\anhdaidien\16566382781488613138ch2.jpg" />
+    <Content Include="wwwroot\upload\anhdaidien\16566383001656594347ch1.jpg" />
+    <Content Include="wwwroot\upload\anhsanpham\1653303752abcd1.png" />
+    <Content Include="wwwroot\upload\anhsanpham\1653303759abcd2.png" />
+    <Content Include="wwwroot\upload\anhsanpham\1653303765abcd3.png" />
+    <Content Include="wwwroot\upload\anhsanpham\1653305877a1.png" />
+    <Content Include="wwwroot\upload\anhsanpham\1653305888a2.png" />
+    <Content Include="wwwroot\upload\anhsanpham\1653305897a3.png" />
+    <Content Include="wwwroot\upload\anhsanpham\1653307514abc1.png" />
+    <Content Include="wwwroot\upload\anhsanpham\1653307514abc2.png" />
+    <Content Include="wwwroot\upload\anhsanpham\1653307514abc3.png" />
+    <Content Include="wwwroot\upload\anhsanpham\1653309021abcde1.png" />
+    <Content Include="wwwroot\upload\anhsanpham\1653309021abcde2.png" />
+    <Content Include="wwwroot\upload\anhsanpham\1653309021abcde3.png" />
+    <Content Include="wwwroot\upload\anhsanpham\1653309908abcdefg1.png" />
+    <Content Include="wwwroot\upload\anhsanpham\1653309908abcdefg2.png" />
+    <Content Include="wwwroot\upload\anhsanpham\1653309908abcdefg3.png" />
+    <Content Include="wwwroot\upload\anhsanpham\1653313824abcd1.png" />
+    <Content Include="wwwroot\upload\anhsanpham\1653313824abcd2.png" />
+    <Content Include="wwwroot\upload\anhsanpham\1653313824abcd3.png" />
+    <Content Include="wwwroot\upload\anhsanpham\1653320962abcdefgh1.png" />
+    <Content Include="wwwroot\upload\anhsanpham\1653320962abcdefgh2.png" />
+    <Content Include="wwwroot\upload\anhsanpham\1653320962abcdefgh3.png" />
+    <Content Include="wwwroot\upload\anhsanpham\1653364418abcdef1.png" />
+    <Content Include="wwwroot\upload\anhsanpham\1653364418abcdef2.png" />
+    <Content Include="wwwroot\upload\anhsanpham\1653364418abcdef3.png" />
+    <Content Include="wwwroot\upload\anhsanpham\1656597260abcd1.png" />
+    <Content Include="wwwroot\upload\anhsanpham\a1.png" />
+    <Content Include="wwwroot\upload\anhsanpham\a2.png" />
+    <Content Include="wwwroot\upload\anhsanpham\a3.png" />
+    <Content Include="wwwroot\upload\anhsanpham\abc1.png" />
+    <Content Include="wwwroot\upload\anhsanpham\abc2.png" />
+    <Content Include="wwwroot\upload\anhsanpham\abc3.png" />
+    <Content Include="wwwroot\upload\anhsanpham\abcd1.png" />
+    <Content Include="wwwroot\upload\anhsanpham\abcd2.png" />
+    <Content Include="wwwroot\upload\anhsanpham\abcd3.png" />
+    <Content Include="wwwroot\upload\anhsanpham\abcde1.png" />
+    <Content Include="wwwroot\upload\anhsanpham\abcde2.png" />
+    <Content Include="wwwroot\upload\anhsanpham\abcde3.png" />
+    <Content Include="wwwroot\upload\anhsanpham\abcdef1.png" />
+    <Content Include="wwwroot\upload\anhsanpham\abcdef2.png" />
+    <Content Include="wwwroot\upload\anhsanpham\abcdef3.png" />
+    <Content Include="wwwroot\upload\anhsanpham\abcdefg1.png" />
+    <Content Include="wwwroot\upload\anhsanpham\abcdefg2.png" />
+    <Content Include="wwwroot\upload\anhsanpham\abcdefg3.png" />
+    <Content Include="wwwroot\upload\anhsanpham\abcdefgh1.png" />
+    <Content Include="wwwroot\upload\anhsanpham\abcdefgh2.png" />
+    <Content Include="wwwroot\upload\anhsanpham\abcdefgh3.png" />
+    <Content Include="data\public\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="data\public\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="data\public\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="data\public\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="data\public\fonts\Oxygen-Bold.ttf" />
+    <Content Include="data\public\fonts\Oxygen-Regular.ttf" />
+    <Content Include="data\public\fonts\Ubuntu-Bold.ttf" />
+    <Content Include="data\public\fonts\Ubuntu-Regular.ttf" />
+    <None Include="Dockerfile" />
+    <None Include=".dockerignore">
+      <DependentUpon>Dockerfile</DependentUpon>
+    </None>
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Shared\header.cshtml" />
+    <Content Include="Views\Shared\footer.cshtml" />
+    <Content Include="Views\tbl_product\Create.cshtml" />
+    <Content Include="Views\tbl_product\Delete.cshtml" />
+    <Content Include="Views\tbl_product\Details.cshtml" />
+    <Content Include="Views\tbl_product\Edit.cshtml" />
+    <Content Include="Views\tbl_product\Index.cshtml" />
+    <Content Include="Views\tbl_product\chuyentrang.cshtml" />
+    <Content Include="Views\tbl_album_product\Create.cshtml" />
+    <Content Include="Views\tbl_album_product\Delete.cshtml" />
+    <Content Include="Views\tbl_album_product\Details.cshtml" />
+    <Content Include="Views\tbl_album_product\Edit.cshtml" />
+    <Content Include="Views\tbl_album_product\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Views\login\" />
+    <Folder Include="Views\register\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>58226</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44318/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.11.1\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.11.1\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.11.1\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.11.1\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.targets'))" />
+  </Target>
+  <Import Project="..\packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.11.1\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.targets" Condition="Exists('..\packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.11.1\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

@@ -1,0 +1,130 @@
+﻿@model shopqa.Controllers.tbl_product
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tbl_product</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.fk_category_product_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fk_category_product_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.c_masp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.c_masp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.c_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.c_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.c_description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.c_description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.c_color)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.c_color)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.c_chatlieu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.c_chatlieu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.c_noidung)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.c_noidung)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.c_nguongoc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.c_nguongoc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.c_img)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.c_img)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.c_price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.c_price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.c_date_created)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.c_date_created)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.c_sex)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.c_sex)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.c_sanphamnoibat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.c_sanphamnoibat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.total)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.total)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.pk_product_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

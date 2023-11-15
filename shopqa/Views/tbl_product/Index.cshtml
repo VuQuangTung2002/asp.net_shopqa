@@ -1,0 +1,363 @@
+﻿@model PagedList.IPagedList<shopqa.Controllers.tbl_product>
+@using PagedList.Mvc
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/data/public/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- Custom Theme files -->
+    <!--theme-style-->
+    <link href="~/data/public/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!--//theme-style-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Shopin Responsive web template, Bootstrap Web Templates, Flat Web Templates, AndroId Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!--theme-style-->
+    <link href="~/data/public/css/style4.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="stylesheet" href="~/data/public/css/style.css">
+    <!--//theme-style-->
+    <script src="~/data/public/js/jquery.min.js"></script>
+    <!--- start-rate---->
+    <script src="~/data/public/js/jstarbox.js"></script>
+    <link rel="stylesheet" href="~/data/public/css/jstarbox.css" type="text/css" media="screen" charset="utf-8" />
+    <script type="text/javascript">
+			jQuery(function() {
+			jQuery('.starbox').each(function() {
+				var starbox = jQuery(this);
+					starbox.starbox({
+					average: starbox.attr('data-start-value'),
+					changeable: starbox.hasClass('unchangeable') ? false : starbox.hasClass('clickonce') ? 'once' : true,
+					ghosting: starbox.hasClass('ghosting'),
+					autoUpdateAverage: starbox.hasClass('autoupdate'),
+					buttons: starbox.hasClass('smooth') ? false : starbox.attr('data-button-count') || 5,
+					stars: starbox.attr('data-star-count') || 5
+					}).bind('starbox-value-changed', function(event, value) {
+					if(starbox.hasClass('random')) {
+					var val = Math.random();
+					starbox.next().text(' '+val);
+					return val;
+					}
+				})
+			});
+		});
+    </script>
+    <!---//End-rate---->
+    <link href="~/data/public/css/form.css" rel="stylesheet" type="text/css" media="all" />
+</head>
+<body>
+    <div class="banner">
+        <div class="container">
+            <section class="rw-wrapper">
+                <h1 class="rw-sentence">
+                    <span>Fashion &amp; Beauty</span>
+                    <div class="rw-words rw-words-1">
+                        <span>Beautiful Designs</span>
+                        <span>Sed ut perspiciatis</span>
+                        <span> Totam rem aperiam</span>
+                        <span>Nemo enim ipsam</span>
+                        <span>Temporibus autem</span>
+                        <span>intelligent systems</span>
+                    </div>
+                    <div class="rw-words rw-words-2">
+                        <span>We denounce with right</span>
+                        <span>But in certain circum</span>
+                        <span>Sed ut perspiciatis unde</span>
+                        <span>There are many variation</span>
+                        <span>The generated Lorem Ipsum</span>
+                        <span>Excepteur sint occaecat</span>
+                    </div>
+                </h1>
+            </section>
+        </div>
+    </div>
+    <div class="content">
+        <div class="container">
+            <div class="content-top">
+
+                <div class="col-md-6 col-md">
+                    <div class="col-1">
+                        <a href="single.html" class="b-link-stroke b-animate-go  thickbox">
+                            <img src="~/data/public/images/abc.jpg" class="img-responsive" alt="" /><div class="b-wrapper1 long-img"><p class="b-animate b-from-right    b-delay03 ">Không Gian </p><label class="b-animate b-from-right    b-delay03 "></label><h3 class="b-animate b-from-left    b-delay03 ">Cửa Hàng</h3></div>
+                        </a>
+
+                        <!---<a href="single.html"><img src="images/abc.jpg" class="img-responsive" alt=""></a>-->
+                    </div>
+
+                </div>
+                <div class="col-md-6 col-md1">
+                    <div class="col-3">
+                        <a href="index.php?controller=detail_men_category_product">
+                            <img src="~/data/public/images/abc1.png" class="img-responsive" alt="">
+                            <div class="col-pic">
+                                <p>Thời Trang</p>
+                                <label></label>
+                                <h5>Bé Nam</h5>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-3">
+                        <a href="index.php?controller=detail_women_category_product">
+                            <img src="~/data/public/images/abc2.png" class="img-responsive" alt="">
+                            <div class="col-pic">
+                                <p>Thời Trang</p>
+                                <label></label>
+                                <h5>Bé Gái</h5>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <!--products-->
+            <!--Sản Phẩm Nổi Bật-->
+            <div class="content-mid">
+                <h3>Sản Phẩm Nổi Bật</h3>
+                <div class="row">
+                    @foreach (var item in Model)
+                    {
+                        <div class="col-md-3">
+                            <label class="line"></label>
+                            <div class="mid-popular">
+                                <div class="item-grid simpleCart_shelfItem">
+                                    <div class="mid-pop">
+                                        <div class="pro-img">
+                                            @{
+                                                string image = "~/wwwroot/" + item.c_img;
+                                                var gioitinh = item.c_sex;
+                                            }
+                                            <img src="@Url.Content(image)" class="img-responsive" alt="" id="output">
+                                            <div class="zoom-icon">
+                                                <a href="~/wwwroot/upload/anhsanpham/abcdefg1.png" rel="title" class="picture b-link-stripe b-animate-go thickbox">
+                                                    <i class="glyphicon glyphicon-search icon"></i>
+                                                </a>
+                                                <a href=""><i class="glyphicon glyphicon-menu-right icon"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="mid-1">
+                                            <div class="women">
+                                                <div class="women-top">
+                                                    <span>@gioitinh</span>
+                                                    @{
+                                                        string name = item.c_name;
+                                                    }
+                                                    <h6><a href="@Url.Action("chuyentrang","tbl_product", new { id = item.pk_product_id })" title="concec nhe">@name</a></h6>
+                                                </div>
+                                                <div class="img item_add">
+                                                    <a href="index.php?controller=cart&act=add&id=34"><img src="~/data/public/images/ca.png" alt=""></a>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                            <div class="mid-2">
+                                                @{
+                                                    var cost = item.c_price;
+                                                }
+                                                <p><label></label><em class="item_price">@cost</em></p>
+                                                <div class="block">
+                                                    <div class="starbox small ghosting"> </div>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+            Trang@(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) /@Model.PageCount
+            @Html.PagedListPager(Model, Page => Url.Action("Index",new { Page }))
+
+
+
+            <!-- end Sản Phẩm Nổi Bật-->			<!--//products-->
+            <!--Sản Phẩm Bán Chạy-->
+            <div class="content-mid">
+                <h3>Sản Phẩm Bán Chạy</h3>
+                <label class="line"></label>
+
+                <div class="mid-popular">
+
+                    <div class="col-md-3 item-grid simpleCart_shelfItem">
+
+                        <div class=" mid-pop">
+
+                            <div class="pro-img">
+                                <img src="~/wwwroot/upload/anhsanpham/abcdef1.png" class="img-responsive" alt="">
+                                <div class="zoom-icon">
+                                    <a href="~/wwwroot/upload/anhsanpham/abcdef1.png" rel="title" class="picture b-link-stripe b-animate-go thickbox">
+                                        <i class="glyphicon glyphicon-search icon"></i>
+                                    </a>
+                                    <a href="single.html"><i class="glyphicon glyphicon-menu-right icon"></i></a>
+                                </div>
+
+                            </div>
+                            <div class="mid-1">
+                                <div class="women">
+                                    <div class="women-top">
+                                        <span>Nữ</span>
+                                        <h6><a href="index.php?controller=detail_product&id=4">VCTSN01-VÁY COTTON 4 CHIỀU 2/10</a></h6>
+                                    </div>
+                                    <div class="img item_add">
+                                        <a href="index.php?controller=cart&act=add&id=4"><img src="~/data/public/images/ca.png" alt=""></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="mid-2">
+                                    <p><label></label><em class="item_price">139,000 VND</em></p>
+                                    <div class="block">
+                                        <div class="starbox small ghosting"> </div>
+                                    </div>
+
+                                    <div class="clearfix"></div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-3 item-grid simpleCart_shelfItem">
+
+                        <div class=" mid-pop">
+                            <div class="pro-img">
+                                <img src="~/wwwroot/upload/anhsanpham/a1.png" class="img-responsive" alt="">
+                                <div class="zoom-icon ">
+                                    <a class="picture" href="~/wwwroot/upload/anhsanpham/a1.png" rel="title" class="b-link-stripe b-animate-go  thickbox"><i class="glyphicon glyphicon-search icon "></i></a>
+                                    <a href="single.html"><i class="glyphicon glyphicon-menu-right icon"></i></a>
+                                </div>
+                            </div>
+                            <div class="mid-1">
+                                <div class="women">
+                                    <div class="women-top">
+                                        <span>Nam</span>
+                                        <h6><a href="index.php?controller=detail_product&id=31">BỘ PLACE BÉ TRAI NGẮN TAY 4/14</a></h6>
+                                    </div>
+                                    <div class="img item_add">
+                                        <a href="index.php?controller=cart&act=add&id=31"><img src="~/data/public/images/ca.png" alt=""></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="mid-2">
+                                    <p><label></label><em class="item_price">139,000 VND</em></p>
+                                    <div class="block">
+                                        <div class="starbox small ghosting"> </div>
+                                    </div>
+
+                                    <div class="clearfix"></div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-3 item-grid simpleCart_shelfItem">
+
+                        <div class=" mid-pop">
+                            <div class="pro-img">
+                                <img src="~/wwwroot/upload/anhsanpham/abcdefg1.png" class="img-responsive" alt="">
+                                <div class="zoom-icon ">
+                                    <a class="picture" href="~/wwwroot/upload/anhsanpham/abcdefg1.png" rel="title" class="b-link-stripe b-animate-go  thickbox"><i class="glyphicon glyphicon-search icon "></i></a>
+                                    <a href="single.html"><i class="glyphicon glyphicon-menu-right icon"></i></a>
+                                </div>
+                            </div>
+                            <div class="mid-1">
+                                <div class="women">
+                                    <div class="women-top">
+                                        <span>Nữ</span>
+                                        <h6><a href="index.php?controller=detail_product&id=34">BỘ PALCE BÉ GÁI CÓ TAY 4/14</a></h6>
+                                    </div>
+                                    <div class="img item_add">
+                                        <a href="index.php?controller=cart&act=add&id=34"><img src="~/data/public/images/ca.png" alt=""></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="mid-2">
+                                    <p><label></label><em class="item_price">159,000 VND</em></p>
+                                    <div class="block">
+                                        <div class="starbox small ghosting"> </div>
+                                    </div>
+
+                                    <div class="clearfix"></div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-3 item-grid simpleCart_shelfItem">
+
+                        <div class=" mid-pop">
+                            <div class="pro-img">
+                                <img src="~/wwwroot/upload/anhsanpham/abcdefgh1.png" class="img-responsive" alt="">
+                                <div class="zoom-icon ">
+                                    <a class="picture" href="~/wwwroot/upload/anhsanpham/abcdefgh1.png" rel="title" class="b-link-stripe b-animate-go  thickbox"><i class="glyphicon glyphicon-search icon "></i></a>
+                                    <a href="single.html"><i class="glyphicon glyphicon-menu-right icon"></i></a>
+                                </div>
+                            </div>
+                            <div class="mid-1">
+                                <div class="women">
+                                    <div class="women-top">
+                                        <span>Nam</span>
+                                        <h6><a href="index.php?controller=detail_product&id=35">QUẦN COTTON BT HỌA TIẾT 1/7</a></h6>
+                                    </div>
+                                    <div class="img item_add">
+                                        <a href="index.php?controller=cart&act=add&id=35"><img src="~/data/public/images/ca.png" alt=""></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="mid-2">
+                                    <p><label></label><em class="item_price">139,000 VND</em></p>
+                                    <div class="block">
+                                        <div class="starbox small ghosting"> </div>
+                                    </div>
+
+                                    <div class="clearfix"></div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="clearfix"></div>
+                </div>
+
+            </div>
+            <!-- end Sản Phẩm Bán Chạy-->			<!--//products-->        <!--end main-->
+            <!--brand-->
+            <div class="brand">
+                <div class="col-md-3 brand-grid">
+                    <img src="~/data/public/images/ic.png" class="img-responsive" alt="">
+                </div>
+                <div class="col-md-3 brand-grid">
+                    <img src="~/data/public/images/ic1.png" class="img-responsive" alt="">
+                </div>
+                <div class="col-md-3 brand-grid">
+                    <img src="~/data/public/images/ic2.png" class="img-responsive" alt="">
+                </div>
+                <div class="col-md-3 brand-grid">
+                    <img src="~/data/public/images/ic3.png" class="img-responsive" alt="">
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <!--//brand-->
+        </div>
+
+    </div>
+</body>
+</html>
