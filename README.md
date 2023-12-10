@@ -1,6 +1,6 @@
 # asp.net_shopqa
 <b>tạo ra một trang web bằng asp.net </b>
-<b>Sử dụng các kĩ năng như : entity framework 6, mô hình MVC , công cụ visual studio 2019, HTML, CSS, Javascript, photoshop</b>
+<b>Sử dụng các kĩ năng như : entity framework 6, mô hình MVC , công cụ visual studio 2019, HTML, CSS, Javascript, photoshop, bootstrap</b>
 <br/>
 
 Trang Chủ:
